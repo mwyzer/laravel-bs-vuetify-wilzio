@@ -17,7 +17,7 @@
       return {
         links: [
           { name: "Dashboard", route: "/dashboard", icon: "bi bi-house" },
-          { name: "Lokasi", route: "/lokasi", icon: "bi bi-geo-alt" },
+          { name: "Lokasi", route: "/location", icon: "bi bi-geo-alt" },
           { name: "Provider", route: "/provider", icon: "bi bi-wifi" },
           { name: "Customer", route: "/customer", icon: "bi bi-people" },
           { name: "Penjualan", route: "/penjualan", icon: "bi bi-cart" },
