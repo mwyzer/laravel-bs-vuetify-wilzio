@@ -10,32 +10,28 @@ class Location extends Model
 {
     use HasFactory;
 
-    //Define attriutes that are mass assignable
+    // Define attributes that are mass assignable
     protected $fillable = [
+        'id',
         'name',
-        'type',
-        'status',
-        'service_type',
-        'flash_sale',
-        'flash_sale_price',
-        'flash_sale_start',
-        'flash_sale_end',
+        'address',
         'created_by',
         'updated_by',
-        'password',
     ];
 
-    //Encrypt the password
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = Hash::make($value);
-    }
+    // Enable timestamps to automatically manage created_at and updated_at fields
+    public $timestamps = true;
 
-    //Decrypt the password
-    public function getPasswordAttribute($value)
-    {
-        return $value;
-    }
+    // Optional: Customize the timestamp format or names
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
 
+    /**
+     * Define the one-to-one relationship with LocationDetail.
+     */
+    public function detail()
+    {
+        return $this->hasOne(LocationDetail::class);
+    }
 
 }
