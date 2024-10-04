@@ -2,19 +2,14 @@
     <div class="d-flex flex-column min-vh-100">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Vuetify</a>
+                <a class="navbar-brand" href="#">Wilzio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <router-link class="nav-link" to="/">Home</router-link>
-                        </li>
-                        <li v-if="isAuthenticated" class="nav-item">
-                            <router-link class="nav-link" to="/dashboard">Dashboard</router-link>
-                        </li>
+ 
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <li v-if="!isAuthenticated" class="nav-item">
@@ -65,7 +60,7 @@
         </div>
         <!-- Footer Section -->
         <footer class="mt-auto p-3 text-center footer-bg">
-            <p class="mb-0">© 2024 Vuetify, Inc. All rights reserved.</p>
+            <p class="mb-0">© {{currentYear}} Wilzio Center. All rights reserved.</p>
         </footer>
     </div>
 </template>
@@ -76,6 +71,8 @@ import { useAuthStore } from '../src/store/auth';
 export default {
     data() {
         return {
+            currentYear: new Date().getFullYear(),
+            profilePhoto: 'https://via.placeholder.com/30', // Replace with the actual profile photo URL
             isDark: true,
         }
     },
@@ -149,12 +146,12 @@ input[type="checkbox"]:checked+.switch:before {
 }
 
 .footer-bg {
-    background: linear-gradient(to right, #42b983, #5f7081);
+    background: linear-gradient(to right, #0b07ec, #5f7081);
     color: white;
 }
 
 .navbar-brand {
-    background: linear-gradient(to right, #42b983, #5f7081);
+    background: linear-gradient(to right, #0225ec, #5f7081);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 1.5rem;
