@@ -7,7 +7,7 @@
       <div class="flex-grow-1 p-3 bg-light">
         <!-- Top Bar with Statistics -->
         <div class="row g-4 mb-4">
-          <StatCard title="Lokasi Page" count="4 Lokasi" bgColor="bg-danger" />
+          <StatCard title="Provider" count="4 Lokasi" bgColor="bg-danger" />
           <StatCard title="Stock" count="12 Lokasi" bgColor="bg-warning" />
           <StatCard title="Stock Aman" count="24 Lokasi" bgColor="bg-info" />
           <StatCard title="Flash Sale" count="7 Lokasi" bgColor="bg-danger" />

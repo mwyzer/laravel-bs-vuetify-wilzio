@@ -3,8 +3,10 @@ import Home from "../components/Home.vue";
 import NotFound from "../components/404-Page.vue";
 import Login from "../components/auth/Login.vue";
 import Register from "../components/auth/Register.vue";
-import Dashboard from "../components/Dashboard.vue";
-import Location from "../components/Location.vue";
+import Dashboard from "@/pages/Dashboard.vue";
+import Location from "@/pages/Location.vue";
+import Provider from "@/pages/Provider.vue";
+import Customer from "@/pages/Customer.vue";
 import ForgotPassword from "../components/auth/ForgotPassword.vue";
 
 const routes = [
@@ -35,6 +37,18 @@ const routes = [
         path: '/location',
         name: 'Location',
         component: Location,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/provider',
+        name: 'Provider',
+        component: Provider,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/customer',
+        name: 'Customer',
+        component: Customer,
         meta: { requiresAuth: true }
     },
     {
