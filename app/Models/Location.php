@@ -15,8 +15,8 @@ class Location extends Model
         'id',
         'name',
         'address',
-        'created_by',
-        'updated_by',
+        'created_at',
+        'updated_at',
     ];
 
     // Enable timestamps to automatically manage created_at and updated_at fields

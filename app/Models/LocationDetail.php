@@ -11,10 +11,10 @@ class LocationDetail extends Model
 
     protected $fillable = [
         'location_id',
-        'address',
-        'contact_number',
-        'additional_info',
-        // Add more attributes as needed
+        'initial_installation_date',
+        'google_map_url',
+        'created_by',
+        'updated_by',
     ];
 
     /**
