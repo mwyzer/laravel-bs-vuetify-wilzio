@@ -23,8 +23,24 @@
                         <li v-if="!isAuthenticated" class="nav-item">
                             <router-link class="nav-link" to="/register">Register</router-link>
                         </li>
-                        <li v-if="isAuthenticated" class="nav-item">
-                            <button @click="logout" class="btn btn-link nav-link">Logout</button>   
+                        <li v-if="isAuthenticated" class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarProfileDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                <img :src="profilePhoto" alt="Profile" class="rounded-circle me-2" width="30" height="30" />
+                                Profile
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarProfileDropdown">
+                                <li>
+                                    <router-link class="dropdown-item" to="/profile">View Profile</router-link>
+                                </li>
+                                <li>
+                                    <router-link class="dropdown-item" to="/settings">Settings</router-link>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <button @click="logout" class="dropdown-item">Logout</button>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <label class="nav-link toggle-btn">

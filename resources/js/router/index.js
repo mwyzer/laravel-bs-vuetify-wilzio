@@ -4,6 +4,7 @@ import NotFound from "../components/404-Page.vue";
 import Login from "../components/auth/Login.vue";
 import Register from "../components/auth/Register.vue";
 import Dashboard from "../components/Dashboard.vue";
+import Location from "../components/Location.vue";
 import ForgotPassword from "../components/auth/ForgotPassword.vue";
 
 const routes = [
@@ -28,6 +29,12 @@ const routes = [
         path: '/dashboard',
         name: 'Dashboard',
         component: Dashboard,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/location',
+        name: 'Location',
+        component: Location,
         meta: { requiresAuth: true }
     },
     {

@@ -20,10 +20,10 @@
           { name: "Lokasi", route: "/location", icon: "bi bi-geo-alt" },
           { name: "Provider", route: "/provider", icon: "bi bi-wifi" },
           { name: "Customer", route: "/customer", icon: "bi bi-people" },
-          { name: "Penjualan", route: "/penjualan", icon: "bi bi-cart" },
+          { name: "Penjualan", route: "/sale", icon: "bi bi-cart" },
           { name: "Deposit", route: "/deposit", icon: "bi bi-wallet" },
           { name: "PayLater", route: "/paylater", icon: "bi bi-credit-card" },
-          { name: "Rekening", route: "/rekening", icon: "bi bi-bank" },
+          { name: "Rekening", route: "/account", icon: "bi bi-bank" },
           { name: "Gift", route: "/gift", icon: "bi bi-gift" },
         ],
       };
