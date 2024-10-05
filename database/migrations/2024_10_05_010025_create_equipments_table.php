@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('equipment', function (Blueprint $table) {
+        Schema::create('equipments', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255); // Equipment name
             $table->text('serial_number'); // Serial number for the equipment

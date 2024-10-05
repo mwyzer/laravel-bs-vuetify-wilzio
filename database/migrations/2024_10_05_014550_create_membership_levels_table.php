@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('member_level', function (Blueprint $table) {
+        Schema::create('membership_levels', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255); // Member level name (e.g., Bronze, Silver, Gold)
+            $table->string('level_name', 255); // Member level name (e.g., Bronze, Silver, Gold)
+            $table->text('description')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('member_level');
+        Schema::dropIfExists('membership_levels');
     }
 };

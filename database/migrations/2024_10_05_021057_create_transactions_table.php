@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('account_payments', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('invoice_id');
             $table->unsignedBigInteger('customer_id');
-            $table->decimal('amount', 10, 2);
+            $table->unsignedBigInteger('transaction_type_id');
             $table->timestamps();
 
             // Foreign keys
-            $table->foreign('invoice_id')->references('id')->on('invoices')->onDelete('cascade');
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('transaction_type_id')->references('id')->on('transaction_types')->onDelete('cascade');
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('account_payments');
+        Schema::dropIfExists('transactions');
     }
 };

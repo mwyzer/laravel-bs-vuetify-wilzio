@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('providers', function (Blueprint $table) {
+        Schema::create('partners', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('location_id'); // Foreign key to locations table
-            $table->string('provider_name'); // Penyedia (e.g., Kartu Halo)
-            $table->string('provider_type'); // Provider Type (e.g., Pascabayar, Prabayar)
-            $table->string('phone_number'); // Nomor (e.g., 0815-2822-1221)
+            $table->string('name'); // Mitra Wilzio (Saller, Partner)
+            $table->boolean('status')->default(true); // Status (e.g., Aktif)
+            $table->integer('max_quantity'); // Maks-Jumlah
             $table->timestamps();
 
             // Foreign key constraint
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('providers');
+        Schema::dropIfExists('partner');
     }
 };
