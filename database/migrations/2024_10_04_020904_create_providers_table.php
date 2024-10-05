@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('providers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('location_id'); // Foreign key to locations table
+            $table->string('type'); // Provider Type (e.g., Pascabayar, Prabayar)
+            $table->string('supplier'); // Penyedia (e.g., Kartu Halo)
+            $table->string('number'); // Nomor (e.g., 0815-2822-1221)
             $table->timestamps();
+
+            // Foreign key constraint
+            $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
         });
     }
 

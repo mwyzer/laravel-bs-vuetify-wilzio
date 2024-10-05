@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('locations', function (Blueprint $table) {
+        Schema::create('backup_services', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->text('address');
+            $table->string('name', 255); //name of the backup service
+            $table->string('provider'); // Provider of the backup service
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('locations');
+        Schema::dropIfExists('backup_services');
     }
 };

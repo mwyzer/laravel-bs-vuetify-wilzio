@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('location_isps', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('location_id')->constrained('locations')->onDelete('cascade');
+            $table->string('provider_type'); // Provider type (e.g., Pascabayar, Prabayar)
+            $table->string('supplier'); // Supplier (e.g., Kartu Halo)
+            $table->string('number'); // Number associated with ISP (e.g., 0815-2822-1221)
             $table->timestamps();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
         });
     }
 

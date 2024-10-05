@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('location_services', function (Blueprint $table) {
+        Schema::create('location_equipment', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('location_id');
-            $table->unsignedBigInteger('service_type_id');
-            $table->boolean('available')->default(true);
+            $table->unsignedBigInteger('equipment_id');
+            $table->boolean('status'); //status of equipment at location
             $table->timestamps();
 
-            // Foreign keys and relationships
+            // Foreign keys
             $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
-            $table->foreign('service_type_id')->references('id')->on('service_types')->onDelete('cascade');
+            $table->foreign('equipment_id')->references('id')->on('equipment')->onDelete('cascade');
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('location_services');
+        Schema::dropIfExists('location_equipment');
     }
 };

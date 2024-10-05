@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('location_details', function (Blueprint $table) {
+        Schema::create('equipment', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 255); // Equipment name
+            $table->text('serial_number'); // Serial number for the equipment
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('location_details');
+        Schema::dropIfExists('equipment');
     }
 };

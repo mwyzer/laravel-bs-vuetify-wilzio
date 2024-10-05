@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('location_partners', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('location_id')->constrained('locations')->onDelete('cascade');
+            $table->string('partner_name');
+            $table->boolean('status')->default(true); // Active/Inactive status
+            $table->integer('max_quantity'); // Max quantity (e.g., "Maks-Jumlah")
             $table->timestamps();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
         });
     }
 
