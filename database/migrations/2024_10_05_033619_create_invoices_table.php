@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('membership_levels', function (Blueprint $table) {
+        Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->string('level_name', 255); // Member level name (e.g., Bronze, Silver, Gold)
-            $table->text('description')->nullable();
-            $table->boolean('is_active')->default(true);
+            $table->unsignedBigInteger('customerId');
+            $table->decimal('amount', 10, 2);
+            $table->string('status', 255);
             $table->timestamps();
-            $table->softDeletes();
+
+            // Foreign Key Constraints
+            $table->foreign('customerId')->references('id')->on('customers')->onDelete('cascade');
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('membership_levels');
+        Schema::dropIfExists('invoices');
     }
 };

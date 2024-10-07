@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('membership_levels', function (Blueprint $table) {
+        Schema::create('customer_status_history', function (Blueprint $table) {
             $table->id();
-            $table->string('level_name', 255); // Member level name (e.g., Bronze, Silver, Gold)
-            $table->text('description')->nullable();
-            $table->boolean('is_active')->default(true);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('membership_levels');
+        Schema::dropIfExists('customer_status_history');
     }
 };
