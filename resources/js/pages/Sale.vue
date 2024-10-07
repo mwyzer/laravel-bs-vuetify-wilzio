@@ -33,12 +33,12 @@
   
   <script>
     import Sidebar from '../components/Sidebar.vue';
-    import DashboardCard from './DashboardCard.vue'; // Reuse card component
-    // Import Sidebar component
+    import DashboardCard from './SaleCard.vue'; // Reuse card component
+
   
   export default {
     components: {
-        Sidebar, DashboardCard
+        Sidebar, DashboardCard,
     },
     data() {
       return {
@@ -105,17 +105,10 @@
   </script>
   
   <style scoped>
-  .sidebar {
-    height: 100vh;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-  }
+
   
   .main-content {
-    margin-left: 250px;
+    margin-left: 0px;
     padding-top: 20px;
     flex-grow: 1;
   }

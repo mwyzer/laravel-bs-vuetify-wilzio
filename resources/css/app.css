@@ -1,0 +1,38 @@
+.card {
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+  }
+  
+  .bg-green {
+    background-color: #28a745;
+  }
+  
+  .bg-red {
+    background-color: #dc3545;
+  }
+  
+  .bg-blue {
+    background-color: #007bff;
+  }
+  
+  .bg-yellow {
+    background-color: #ffc107;
+  }
+  
+  .bg-purple {
+    background-color: #6f42c1;
+  }
+  
+  .bg-lightblue {
+    background-color: #17a2b8;
+  }
+  
+  .bg-darkpurple {
+    background-color: #6610f2;
+  }
+  
+  .icon {
+    font-size: 2rem;
+  }
+  

@@ -1,59 +1,67 @@
 <template>
     <div class="d-flex">
-      <!-- Sidebar Section -->
+      <!-- Sidebar section -->
       <Sidebar />
   
       <!-- Main Content Section -->
       <main role="main" class="main-content flex-grow-1 px-4">
-        <!-- Tab Navigation -->
-        <div class="tab-menu-container mb-4">
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link" :class="{ active: activeTab === 'List' }" href="#" @click.prevent="activeTab = 'List'">List</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" :class="{ active: activeTab === 'Tagihan' }" href="#" @click.prevent="activeTab = 'Tagihan'">Tagihan</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" :class="{ active: activeTab === 'Atur' }" href="#" @click.prevent="activeTab = 'Atur'">Atur</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" :class="{ active: activeTab === 'Pascabayar' }" href="#" @click.prevent="activeTab = 'Pascabayar'">Pascabayar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" :class="{ active: activeTab === 'Prabayar' }" href="#" @click.prevent="activeTab = 'Prabayar'">Prabayar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" :class="{ active: activeTab === 'Metro' }" href="#" @click.prevent="activeTab = 'Metro'">Metro</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" :class="{ active: activeTab === 'Satelit' }" href="#" @click.prevent="activeTab = 'Satelit'">Satelit</a>
-            </li>
-          </ul>
-        </div>
+        <!-- Tabs Section -->
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" :class="{ active: activeTab === 'List' }" href="#" @click.prevent="setActiveTab('List')">List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" :class="{ active: activeTab === 'Tagihan' }" href="#" @click.prevent="setActiveTab('Tagihan')">Tagihan</a>
+          </li>
+          <li class="nav-item position-relative">
+            <a class="nav-link" :class="{ active: activeTab === 'Atur' }" href="#" @click.prevent="toggleSlideMenu">Atur</a>
   
-        <!-- Tab Content -->
-        <div class="tab-content">
+            <!-- Slide Menu for Atur Options -->
+            <transition name="slide">
+              <div v-if="showSlideMenu" class="slide-menu">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link" :class="{ active: activeSubTab === 'Pascabayar' }" href="#" @click.prevent="setActiveSubTab('Pascabayar')">Pascabayar</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" :class="{ active: activeSubTab === 'Prabayar' }" href="#" @click.prevent="setActiveSubTab('Prabayar')">Prabayar</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" :class="{ active: activeSubTab === 'Metro' }" href="#" @click.prevent="setActiveSubTab('Metro')">Metro</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" :class="{ active: activeSubTab === 'Satelit' }" href="#" @click.prevent="setActiveSubTab('Satelit')">Satelit</a>
+                  </li>
+                </ul>
+              </div>
+            </transition>
+          </li>
+        </ul>
+  
+        <!-- Dynamic Content Section Based on Tabs -->
+        <div class="tab-content mt-4">
+          <!-- Content for Main Tab 'List' -->
           <div v-if="activeTab === 'List'">
-            <TabList />
+            <ProviderList />
           </div>
+  
+          <!-- Content for Main Tab 'Tagihan' -->
           <div v-if="activeTab === 'Tagihan'">
-            <TabTagihan />
+            <ProviderBills />
           </div>
-          <div v-if="activeTab === 'Atur'">
-            <TabAtur />
+  
+          <!-- Content for Sub-tabs under 'Atur' -->
+          <div v-if="activeTab === 'Atur' && activeSubTab === 'Pascabayar'">
+            <ProviderPostpaid />
           </div>
-          <div v-if="activeTab === 'Pascabayar'">
-            <TabPascabayar />
+          <div v-if="activeTab === 'Atur' && activeSubTab === 'Prabayar'">
+            <ProviderPrepaid />
           </div>
-          <div v-if="activeTab === 'Prabayar'">
-            <TabPrabayar />
+          <div v-if="activeTab === 'Atur' && activeSubTab === 'Metro'">
+            <ProviderMetro />
           </div>
-          <div v-if="activeTab === 'Metro'">
-            <TabMetro />
-          </div>
-          <div v-if="activeTab === 'Satelit'">
-            <TabSatelit />
+          <div v-if="activeTab === 'Atur' && activeSubTab === 'Satelit'">
+            <ProviderSatellite />
           </div>
         </div>
       </main>
@@ -61,71 +69,86 @@
   </template>
   
   <script>
-  // Import the Sidebar and Tab Components
+  // Import necessary components
   import Sidebar from '../components/Sidebar.vue';
-  import TabList from './TabList.vue';
-  import TabTagihan from './TabTagihan.vue';
-  import TabAtur from './TabAtur.vue';
-  import TabPascabayar from './TabPascabayar.vue';
-  import TabPrabayar from './TabPrabayar.vue';
-  import TabMetro from './TabMetro.vue';
-  import TabSatelit from './TabSatelit.vue';
+  import ProviderList from './ProviderList.vue';
+  import ProviderBills from './ProviderBills.vue';
+  import ProviderPostpaid from './ProviderPostpaid.vue';
+  import ProviderPrepaid from './ProviderPrepaid.vue';
+  import ProviderMetro from './ProviderMetro.vue';
+  import ProviderSatellite from './ProviderSatellite.vue';
   
   export default {
     components: {
       Sidebar,
-      TabList,
-      TabTagihan,
-      TabAtur,
-      TabPascabayar,
-      TabPrabayar,
-      TabMetro,
-      TabSatelit,
+      ProviderList,
+      ProviderBills,
+      ProviderPostpaid,
+      ProviderPrepaid,
+      ProviderMetro,
+      ProviderSatellite,
     },
     data() {
       return {
-        activeTab: 'List', // Default active tab
+        activeTab: 'List', // Default main tab
+        activeSubTab: '', // Default sub-tab under 'Atur'
+        showSlideMenu: false, // Controls whether the slide menu is shown
       };
     },
+    methods: {
+      toggleSlideMenu() {
+        this.activeTab = 'Atur';
+        this.showSlideMenu = !this.showSlideMenu;
+      },
+      setActiveTab(tabName) {
+        this.activeTab = tabName;
+        this.showSlideMenu = false; // Close the slide menu when switching to a different tab
+      },
+      setActiveSubTab(subTabName) {
+        this.activeSubTab = subTabName;
+      }
+    }
   };
   </script>
   
   <style scoped>
-  .main-content {
-    margin-left: 250px;
-    padding: 20px 30px; /* Added padding for better spacing */
-    flex-grow: 1;
-    background-color: #1e1e2d;
-  }
-  
-  .nav-tabs {
-    border-bottom: 1px solid #444;
-  }
-  
-  .nav-tabs .nav-link {
-    color: #ddd;
-    margin-right: 10px;
-  }
-  
-  .nav-tabs .nav-link.active {
+  /* Slide-in Menu for Atur Sub-tabs */
+  .slide-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 200px;
     background-color: #007bff;
     color: white;
-    border: 1px solid transparent;
+    padding: 20px;
+    z-index: 10;
   }
   
-  .tab-menu-container {
-    margin-bottom: 30px; /* Increased margin for more space between tabs and content */
+  .slide-enter-active, .slide-leave-active {
+    transition: transform 0.3s ease;
+  }
+  
+  .slide-enter {
+    transform: translateX(100%);
+  }
+  
+  .slide-leave-to {
+    transform: translateX(100%);
+  }
+  
+  .nav-tabs .nav-link.active,
+  .nav-pills .nav-link.active {
+    background-color: #007bff;
+    color: white;
   }
   
   .tab-content {
-    padding: 20px;
-    background-color: #2a2a3d;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
   }
   
-  h3 {
-    color: #ddd;
+  .nav-tabs .nav-link {
+    cursor: pointer;
   }
+  
   </style>
   

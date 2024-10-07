@@ -5,7 +5,7 @@ import Login from "../components/auth/Login.vue";
 import Register from "../components/auth/Register.vue";
 import Dashboard from "@/pages/Dashboard.vue";
 import Location from "@/pages/Location.vue";
-import Provider from "@/pages/Provider.vue";
+import Provider from "@/pages/ProviderIndex.vue";
 import Customer from "@/pages/Customer.vue";
 import ForgotPassword from "../components/auth/ForgotPassword.vue";
 import Sale from "@/pages/Sale.vue";

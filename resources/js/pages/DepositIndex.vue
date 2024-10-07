@@ -60,7 +60,7 @@
   
   <style scoped>
   .main-content {
-    margin-left: 250px;
+    margin-left: 0px;
     padding: 20px 30px; /* Added padding for better spacing */
     flex-grow: 1;
     background-color: #1e1e2d;
