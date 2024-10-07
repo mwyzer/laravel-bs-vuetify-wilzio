@@ -8,6 +8,8 @@ import Location from "@/pages/Location.vue";
 import Provider from "@/pages/Provider.vue";
 import Customer from "@/pages/Customer.vue";
 import ForgotPassword from "../components/auth/ForgotPassword.vue";
+import Sale from "@/pages/Sale.vue";
+import Deposit from "../pages/DepositIndex.vue";
 
 const routes = [
     {
@@ -49,6 +51,18 @@ const routes = [
         path: '/customer',
         name: 'Customer',
         component: Customer,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/sale',
+        name: 'Sale',
+        component: Sale,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/deposit',
+        name: 'Deposit',
+        component: Deposit,
         meta: { requiresAuth: true }
     },
     {

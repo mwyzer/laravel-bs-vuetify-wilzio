@@ -46,11 +46,11 @@ export default {
   color: #90caf9;
 }
 
-.nav-pills .nav-link {
+/* .nav-pills .nav-link {
   padding: 0.75rem;
   font-size: 1rem;
   transition: background-color 0.3s;
-}
+} */
 
 .nav-pills .nav-link:hover,
 .nav-pills .nav-link.active {
