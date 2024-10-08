@@ -65,6 +65,24 @@ const routes = [
         component: Deposit,
         meta: { requiresAuth: true }
     },
+    // {
+    //     path: '/paylater',
+    //     name: 'Paylater',
+    //     component: Paylater,
+    //     meta: { requiresAuth: true }
+    // },
+    // {
+    //     path: '/account',
+    //     name: 'Account',
+    //     component: Account,
+    //     meta: { requiresAuth: true }
+    // },
+    // {
+    //     path: '/gift',
+    //     name: 'Gift',
+    //     component: Gift,
+    //     meta: { requiresAuth: true }
+    // },
     {
         path: '/:pathMatch(.*)*',
         component: NotFound

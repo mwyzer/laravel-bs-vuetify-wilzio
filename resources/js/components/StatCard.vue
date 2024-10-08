@@ -1,21 +1,27 @@
 <template>
-    <div class="col">
-      <div :class="['card', bgColor, 'text-white']">
-        <div class="card-body">
-          <h5 class="card-title">{{ title }}</h5>
-          <h3 class="card-text">{{ count }}</h3>
-        </div>
-      </div>
+  <div :class="['card', `bg-${color}`, 'text-white', 'p-4']">
+    <div class="card-body">
+      <h5 class="card-title">{{ title }}</h5>
+      <p class="card-text">Hari Ini: {{ today }}</p>
+      <p class="card-text">Bulan Ini: {{ month }}</p>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    props: {
-      title: String,
-      count: String,
-      bgColor: String,
-    },
-  };
-  </script>
-  
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    title: String,
+    today: String,
+    month: String,
+    color: String,
+  },
+};
+</script>
+
+<style scoped>
+.card {
+  border-radius: 10px;
+  min-height: 150px;
+}
+</style>
